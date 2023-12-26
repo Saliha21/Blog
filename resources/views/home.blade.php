@@ -1,0 +1,44 @@
+<x-app-layout title="Home Page">
+    @section('hero')
+
+        <div class="w-full text-center py-32">
+            <h1 class="text-2xl mt-8 md:text-3xl font-bold text-center lg:text-9xl text-gray-700">
+                Welcome to <span class="text-yellow-500">10:10</span> Coding Tips!<span class="text-gray-900"> Blog</span>
+            </h1>
+            <p class="text-gray-500 text-lg mt-1"> Coding, would be a piece of cake</p>
+            <a class="px-3 py-2 text-lg text-white bg-gray-800 rounded mt-5 inline-block"
+                href="http://127.0.0.1:8000/blog">Start
+                Reading</a>
+        </div>
+    @endsection
+
+    <div class="mb-10 w-full">
+        <div class="mb-16">
+            <h2 class="mt-16 mb-5 text-sm text-yellow-500 font-semibold">Featured Posts</h2>
+            <div class="w-full">
+                <div class="grid grid-cols-6 gap-6 w-full">
+                    @foreach ($featuredPosts as $post)
+                        <x-posts.post-card :post="$post" class="col-span-3 md:col-span-1" />
+                    @endforeach
+
+                </div>
+            </div>
+            <a class="mt-10 block text-center text-lg text-yellow-500 font-bold"
+                href="http://127.0.0.1:8000/blog">More
+                Posts</a>
+            </div>
+            <hr>
+
+            <h2 class="mt-16 mb-5 text-xl text-yellow-500 font-semibold">Latest Posts</h2>
+            <div class="w-full mb-5">
+                <div class="grid grid-cols-6 gap-6 w-full">
+                @foreach ($latestPosts as $post)
+                            <x-Posts.post-card :post="$post" class=" md:col-span-1 col-span-3 w-full" />
+                    @endforeach
+                </div>
+            </div>
+            <a class="mt-10 block text-center text-lg text-yellow-500 font-bold"
+            href="http://127.0.0.1:8000/blog">More
+            Posts</a>
+    </div>
+</x-app-layout>
